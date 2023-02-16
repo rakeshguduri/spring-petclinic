@@ -3,7 +3,7 @@ pool:
   name: default
   vmImage: ubuntu-latest
 steps:
-  - task: Maven@3
+  - task: Maven@4
     inputs:
       mavenPOMFile: 'pom.xml'
       javaHomeOption: 'JDKVersion'
