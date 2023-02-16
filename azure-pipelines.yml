@@ -1,0 +1,12 @@
+---
+pool:
+  name: default
+  vmImage: ubuntu-latest
+steps:
+  - task: Maven@3
+    inputs:
+      mavenPOMFile: 'pom.xml'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '17.0'
+      jdkArchitectureOption: 'x64'
+      goals: 'package'
