@@ -7,6 +7,5 @@ steps:
     inputs:
       mavenPOMFile: 'pom.xml'
       javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.8'
-      jdkArchitectureOption: 'x64'
+      jdkVersionOption: default
       goals: 'package'
