@@ -12,5 +12,5 @@ steps:
     jdkDirectory: /usr/lib/jvm/java-17-openjdk-amd64/bin/java
     jdkVersionOption: '1.17'
     mavenVersionOption: Path
-    mavenDirectory: /home/ubuntu/apache-maven-3.9.0
+    mavenDirectory: /home/ubuntu/apache-maven-3.9.0/bin/mvn
     goals: 'package'
