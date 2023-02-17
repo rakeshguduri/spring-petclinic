@@ -3,9 +3,11 @@ pool:
   name: default
   vmImage: ubuntu-latest
 steps:
-  - task: Maven@4
-    inputs:
-      mavenPOMFile: 'pom.xml'
-      javaHomeOption: 'JDKVersion'
-      jdkVersionOption: default
-      goals: 'package'
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: Path
+    mavenVersionOption: Path
+    goals: 'package'
