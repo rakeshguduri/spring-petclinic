@@ -9,8 +9,8 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: Path
-    jdkDirectory: /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+    jdkDirectory: /usr/lib/jvm/java-17-openjdk-amd64
     jdkVersionOption: '1.17'
     mavenVersionOption: Path
-    mavenDirectory: /usr/share/maven/bin/mvn/bin/mvn
+    mavenDirectory: /usr/share/maven
     goals: 'package'
