@@ -1,0 +1,51 @@
+parameters:
+- name: agent
+  displayname: 'agent_name'
+  default: default
+  values:
+    - default
+    - 'Azure-Pipelines'
+- image_name: vmImage
+  dispalyname: vmimage
+  default: 'ubuntu-latest'
+  values:
+    - 'ubuntu-latest'
+    - 'ubuntu-18.4'
+    - 'ubuntu-20.4'
+- name: pomFile
+  displayname: pomfile
+  type: string
+  default: 'pom.xml'
+- name: goal
+  displayname: 'goal to be'
+  type: string
+  default: package
+  values:
+    - package
+    - compile
+    - install
+- name: javapath
+  displayname: javapath
+  type: string
+  default: false
+  values: '/usr/lib/jvm/java-17-openjdk-amd64'
+- name: mavenpath
+  displayname: mavenpath
+  type: string
+  default: false
+  values: '/opt/maven'
+- name: testResultFiles
+  displayname: testresult
+  default: '**/surefire-reports/TEST-*.xml'
+
+steps:
+  - task: Maven@3
+    inputs:
+      mavenPomFile: ${{ parameters.pomFile }}
+      goals: ${{ parameters.goal }}
+      publishJUnitResults: true
+      testResultsFiles: ${{ parameters.testResultFiles }}
+      javaHomeOption: Path
+      jdkDirectory: ${{ parameters.javapath }}
+      mavenVersionOption: Path
+      mavenDirectory: ${{ parameters.mavenpath }}
