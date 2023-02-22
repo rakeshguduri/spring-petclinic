@@ -2,15 +2,15 @@
 pool:
   name: default
   vmImage: ubuntu-latest
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: Path
-    jdkDirectory: /usr/lib/jvm/java-17-openjdk-amd64
-    jdkVersionOption: '1.17'
-    mavenVersionOption: Path
-    mavenDirectory: /opt/maven
-    goals: 'package'
+  
+trigger:
+- main
+
+
+extends:
+  template: templates/sampletemplate.yml
+  parameters:
+    pomFile: 'pom.xml'
+    javapath: '/usr/lib/jvm/java-17-openjdk-amd64'
+    mavenpath: '/opt/maven'
+    testResultFiles: '**/surefire-reports/TEST-*.xml'
