@@ -27,13 +27,13 @@ parameters:
 - name: javapath
   displayname: javapath
   type: string
-  default: false
-  values: '/usr/lib/jvm/java-17-openjdk-amd64'
+  values:
+    - '/usr/lib/jvm/java-17-openjdk-amd64'
 - name: mavenpath
   displayname: mavenpath
   type: string
-  default: false
-  values: '/opt/maven'
+  values:
+    - '/opt/maven'
 - name: testResultFiles
   displayname: testresult
   default: '**/surefire-reports/TEST-*.xml'
